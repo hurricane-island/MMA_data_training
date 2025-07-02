@@ -1,10 +1,3 @@
-'''
-WORK IN PROGRESS 
-BOOLEANS 
-FLAT LINE TEST
-'''
-
-
 # This is an introduction to Python. 
 # In Python, the main data types are:
     # int, float, str, bool, list, tuple, set, dict
@@ -26,6 +19,7 @@ buoy_parameters_tuple = (column_1, column_2, column_3, column_4, column_5, colum
 
 #You can remove items from a list using the remove() method
 buoy_parameters_list.remove(column_1)
+
 print("The parameters we are measuring are: ", buoy_parameters_list) #You can print using the print() function
 
 #You can add items to a list using the append() or insert() method 
@@ -45,19 +39,22 @@ buoy_parameters_dict = {
     'Chlorophyll_RFU': column_5,
     'BGA_PE_RFU': column_6
 }
-#The keys are the names of the parameters in the raw data, 
-#and the values are the varibles we defined earlier with our naming convention.	
-#You can access the values in a dictionary using the keys
+
+'''
+The keys are the names of the parameters in the raw data, 
+and the values are the varibles we defined earlier with our naming convention.	
+You can access the values in a dictionary using the keys
+'''
 
 print(f"The parameters we are measuring are: {buoy_parameters_dict}")
 #To print only the values, add .values() to the end of the dictionary
 #To print only the keys, add .keys() to the end of the dictionary
-#To specify a specific key,  ####
-#To specify a specific value,  ####
 
-# Lists, tuples, and dictionaries are all examples of data structures in Python.
-# They can hold strings (like we have used above) and other data types like integers, floats, and booleans.
-# An integer is a whole number, a float is a number with a decimal point, and a boolean is either True or False.
+'''
+Lists, tuples, and dictionaries are all examples of data structures in Python.
+They can hold strings (like we have used above) and other data types like integers, floats, and booleans.
+An integer is a whole number, a float is a number with a decimal point, and a boolean is either True or False.
+'''
 
 # We will try to do a quality control check on some example data. 
 
@@ -69,8 +66,11 @@ USER_MIN = 5.0 #RFU, float
 
 chlorophyll_ex_data = [10.3, 68.1, 4.4, 71.9, 45.2, 12.5, 0.0, 100.0, 50.0, 5.0] #This is a list of example chlorophyll data in RFU
 
-# We are going to use a for loop to iterate through the chlorophyll data and check if the values are within the sensor and user limits.
-# We will use if-else statements to check the values and print a message if they are outside the sensor and user limits. 
+'''
+We are going to use a for loop to iterate through the chlorophyll data and check if the values are within the sensor and user limits.
+We will use if-else statements to check the values and print a message if they are outside the sensor and user limits. 
+'''
+
 for value in chlorophyll_ex_data: #This is a for loop that will iterate through each value in the chlorophyll_ex_data list
     if value > SENSOR_MAX or value < SENSOR_MIN:
         print(f"Fail sensor limits: {value} RFU") #This will print if the value is outside the sensor limits
@@ -79,7 +79,10 @@ for value in chlorophyll_ex_data: #This is a for loop that will iterate through 
     else:
         pass
 
-# Lets say if one value is outside the sensor limits, the data is not valid and we want to stop the loop.
+'''
+Lets say if one value is outside the sensor limits, the data is not valid and we want to stop the loop.
+'''
+
 for value in chlorophyll_ex_data: #This is a for loop that will iterate through each value in the chlorophyll_ex_data list
     if value > SENSOR_MAX or value < SENSOR_MIN:
         break # This will stop the loop if the value is outside the sensor limits
@@ -97,12 +100,19 @@ for value in chlorophyll_ex_data: #This is a for loop that will iterate through 
 # The inputs to the function are called an arguments, and the variables within the function are called parameters.
 
 #python has some useful built in functions that can be found in the python library
-phycoerythrin_ex_data = [1, 0, 2, 3, 4, 0] #Imagine we got all the same values
+phycoerythrin_ex_data = [0, 0, 0, 0, 0, 0] #Imagine we got all the same values
 print(len(phycoerythrin_ex_data)) #len() and print() are built in python functions. len() tells you the length of the list
 
-#to write your own function, you first need to define it
-#the raw data provides dates and time like this: 4/24/25 17:00
-#but we want the time to be formatted like this 2025-04-24T17:00:00Z which is called ISO 8601 formatting
+'''
+Booleans are a data type that can only be True or False.
+They are often used in if-else statements to control the flow of the program. 
+'''
+
+'''
+to write your own function, you first need to define it
+the raw data provides dates and time like this: 4/24/25 17:00
+but we want the time to be formatted like this 2025-04-24T17:00:00Z which is called ISO 8601 formatting
+'''
 
 from datetime import datetime, timezone #datetime is a python module that allows us to use functions and constants from the module
 
@@ -134,14 +144,15 @@ def time_format(list):
     timestamp_iso = datetime.isoformat(timestamp_dt) #this will change the values to iso format
     return print(timestamp_iso) 
 
-for index, item in enumerate(timestamp): #we want to go through
+for index, item in enumerate(timestamp): #we want to go through each item in the list timestamp
     time_format(timestamp)
+
 
 ### Gotta be a better way to do this! ###
 
 # def flat_line_test(phycoerythrin_ex_data):
 #     for x in phycoerythrin_ex_data:
-#         if not isinstance(x, int):
+#         if not isinstance(x, int) is True:
 #             break
 #         phycoerythrin_ex_data = iter(phycoerythrin_ex_data)
 #         if x != next(phycoerythrin_ex_data):
@@ -154,6 +165,11 @@ for index, item in enumerate(timestamp): #we want to go through
 #     return print(response)
 
 # flat_line_test(phycoerythrin_ex_data)
+
+
+       
+# Booleans : bool()
+# True or False
 
 
 

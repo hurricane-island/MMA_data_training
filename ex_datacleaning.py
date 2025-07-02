@@ -1,8 +1,3 @@
-'''
-WORK IN PROGRESS
-NEEDS COMMENTS
-'''
-
 
 import pandas as pd
 from pandas import DataFrame, read_csv
@@ -43,8 +38,12 @@ print(f"Duplicate count: {duplicate_count}")
 output_file_path = '/Users/adelejordan/Downloads/Wynken_SondeValues_Cleaned_2025-05-14T22-45.csv'
 df.to_csv(output_file_path, index=False)
 
+# how you could sort by species
+# sorted_by_species = df.sort_values(['header'])
 
-
+# slice
+# copy
+# merge
 
 
 
